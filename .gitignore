@@ -23,3 +23,6 @@ DerivedData
 Carthage.checkout
 Carthage.build
 Carthage/Build
+
+.build
+.index-build

@@ -5,16 +5,21 @@ on:
   - push
 
 jobs:
+  # https://github.com/swift-actions/setup-swift?tab=readme-ov-file#usage
   test:
-    runs-on: macos-13
+    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        params: [ '-scheme HSLuvMac -sdk macosx', '-scheme HSLuviOS -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14"' ]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        swift: ["5", "6"]
     steps:
+      # Perhaps we should switch to swift-actions/setup-swift, but they are undergoing a major refactor
+      # I tested swift-actions/setup-swift@next but got gpg errors, so we should wait (2025-06-14)
+      # For now this seems to be the best third party: https://github.com/SwiftyLab/setup-swift
+      - uses: SwiftyLab/setup-swift@v1
+        with:
+          swift-version: ${{ matrix.swift }}
       - uses: actions/checkout@v4
-      # https://github.com/actions/runner-images/discussions/8367#discussioncomment-12685592
-      # https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md
-      - name: Select XCode
-        run: sudo xcode-select -s /Applications/Xcode_14.1.app
-      - name: Test
-        run: xcodebuild ${{ matrix.params }} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
+      - name: Build and Test
+        run: swift test
