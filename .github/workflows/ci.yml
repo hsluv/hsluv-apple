@@ -15,8 +15,10 @@ jobs:
         os: [ubuntu-latest, macos-latest]
         swift: ["5", "6"]
     steps:
-      # https://github.com/swift-actions/setup-swift/pull/710
-      - uses: swift-actions/setup-swift@next
+      # Perhaps we should switch to swift-actions/setup-swift, but they are undergoing a major refactor
+      # I tested swift-actions/setup-swift@next but got gpg errors, so we should wait (2025-06-14)
+      # For now this seems to be the best third party: https://github.com/SwiftyLab/setup-swift
+      - uses: SwiftyLab/setup-swift@v1
         with:
           swift-version: ${{ matrix.swift }}
       - uses: actions/checkout@v4
