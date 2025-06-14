@@ -8,7 +8,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: swift-actions/setup-swift@v2
+      # https://github.com/swift-actions/setup-swift/pull/710
+      - uses: swift-actions/setup-swift@next
         with:
           swift-version: 6
       - uses: actions/checkout@v4
