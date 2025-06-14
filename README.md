@@ -5,9 +5,9 @@
 [![MIT License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](LICENSE)
 
 Swift port of [HSLuv](http://www.hsluv.org) (revision 4), courtesy 
-of [Clay Smith](https://github.com/stphnclysmth), [Alexei Boronine](https://github.com/boronine), [Gemini 2.5 Pro](https://deepmind.google/models/gemini/pro/).
+of [Clay Smith](https://github.com/stphnclysmth), [Alexei Boronine](https://github.com/boronine), [and others](https://github.com/hsluv/hsluv-swift/graphs/contributors).
 
-[Explanation, demo, ports etc.](http://www.hsluv.org)
+[Explanation, demo, etc.](http://www.hsluv.org)
 
 ## USAGE
 

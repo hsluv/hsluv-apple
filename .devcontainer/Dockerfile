@@ -5,4 +5,5 @@ RUN apt-get update && apt-get -y install libpython3-dev libxml2-dev libncurses-d
 WORKDIR /
 RUN curl -L https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz | tar zx
 USER vscode
+# Latest version is fine in dev, ci.yml will test older versions
 RUN ./swiftly init --assume-yes
