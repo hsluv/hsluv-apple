@@ -1,11 +1,8 @@
 # HSLuv.swift
 
-[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Build Status](https://github.com/hsluv/hsluv-swift/actions/workflows/ci.yml/badge.svg)](https://github.com/hsluv/hsluv-swift/actions/workflows/ci.yml)
-[![MIT License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](LICENSE)
 
-Swift port of [HSLuv](http://www.hsluv.org) (revision 4), courtesy 
-of [Clay Smith](https://github.com/stphnclysmth), [Alexei Boronine](https://github.com/boronine), [and others](https://github.com/hsluv/hsluv-swift/graphs/contributors). Supported on Swift 5+.
+Swift port of [HSLuv](http://www.hsluv.org) (revision 4). Supports Swift 5+ on Apple platforms, Linux and Windows.
 
 [Explanation, demo, etc.](http://www.hsluv.org)
 
