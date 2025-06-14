@@ -8,7 +8,7 @@ Swift port of [HSLuv](http://www.hsluv.org) (revision 4). Supports Swift 5+ on A
 
 ## INSTALL
 
-This project is installable from [Swift Package Manager](https://www.swift.org/documentation/package-manager/). Add the following to your [`Package.swift`](https://developer.apple.com/documentation/packagedescription):
+Install HSLuv using [Swift Package Manager](https://www.swift.org/documentation/package-manager/) by adding the following to your [`Package.swift`](https://developer.apple.com/documentation/packagedescription):
 
 ```swift
 .package(url: "https://github.com/hsluv/hsluv-swift.git", from: "3.0.0"),
