@@ -403,3 +403,48 @@ public class Hsluv {
         rgbToHpluv()
     }
 }
+
+/// Clamps a value between 0 and 1
+private func clamp(_ value: Double) -> Double {
+    return max(0.0, min(1.0, value))
+}
+
+/// Converts HSLuv color values to RGB tuple
+/// - Parameters:
+///   - h: Hue in degrees (0-360)
+///   - s: Saturation percentage (0-100)
+///   - l: Lightness percentage (0-100)
+/// - Returns: Named tuple with red, green, blue values in range 0-1
+public func hsluvToRgb(_ h: Double, _ s: Double, _ l: Double) -> (red: Double, green: Double, blue: Double) {
+    let converter = Hsluv()
+    converter.hsluv_h = h
+    converter.hsluv_s = s
+    converter.hsluv_l = l
+    converter.hsluvToRgb()
+    
+    return (
+        red: clamp(converter.rgb_r),
+        green: clamp(converter.rgb_g),
+        blue: clamp(converter.rgb_b)
+    )
+}
+
+/// Converts HPLuv color values to RGB tuple
+/// - Parameters:
+///   - h: Hue in degrees (0-360)
+///   - p: Pastel percentage (0-100)
+///   - l: Lightness percentage (0-100)
+/// - Returns: Named tuple with red, green, blue values in range 0-1
+public func hpluvToRgb(_ h: Double, _ p: Double, _ l: Double) -> (red: Double, green: Double, blue: Double) {
+    let converter = Hsluv()
+    converter.hpluv_h = h
+    converter.hpluv_p = p
+    converter.hpluv_l = l
+    converter.hpluvToRgb()
+    
+    return (
+        red: clamp(converter.rgb_r),
+        green: clamp(converter.rgb_g),
+        blue: clamp(converter.rgb_b)
+    )
+}

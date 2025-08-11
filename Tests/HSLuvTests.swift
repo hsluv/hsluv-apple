@@ -36,6 +36,37 @@ class HSLuvTests: XCTestCase {
         XCTAssertLessThanOrEqual(abs(expected.hpluv_l - actual.hpluv_l), tolerance)
     }
     
+    func testStandaloneFunctions() {
+        // Test that the functions match the class-based implementation
+
+        // hsluvToRgb
+        let converter = Hsluv()
+        converter.hsluv_h = 120
+        converter.hsluv_s = 50
+        converter.hsluv_l = 70
+        converter.hsluvToRgb()
+        
+        let standaloneResult = hsluvToRgb(120, 50, 70)
+        XCTAssertEqual(standaloneResult.red, clamp(converter.rgb_r), accuracy: 0.0001)
+        XCTAssertEqual(standaloneResult.green, clamp(converter.rgb_g), accuracy: 0.0001)
+        XCTAssertEqual(standaloneResult.blue, clamp(converter.rgb_b), accuracy: 0.0001)
+
+        // hpluvToRgb
+        converter.hpluv_h = 120
+        converter.hpluv_p = 50
+        converter.hpluv_l = 70
+        converter.hpluvToRgb()
+        
+        let standaloneResult2 = hpluvToRgb(120, 50, 70)
+        XCTAssertEqual(standaloneResult2.red, clamp(converter.rgb_r), accuracy: 0.0001)
+        XCTAssertEqual(standaloneResult2.green, clamp(converter.rgb_g), accuracy: 0.0001)
+        XCTAssertEqual(standaloneResult2.blue, clamp(converter.rgb_b), accuracy: 0.0001)
+    }
+    
+    private func clamp(_ value: Double) -> Double {
+        return max(0.0, min(1.0, value))
+    }
+    
     func testSnapshot() {
         let url = URL(fileURLWithPath: "Tests/Resources/snapshot-rev4.json")
         guard let data = try? Data(contentsOf: url),
