@@ -7,15 +7,23 @@ on:
 
 jobs:
   test:
-    runs-on: macos-13
+    runs-on: macos-15
     strategy:
       matrix:
-        params: [ '-scheme HSLuvMac -sdk macosx', '-scheme HSLuviOS -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14"' ]
+        params:
+          - '-scheme HSLuvMac -sdk macosx'
+          - '-scheme HSLuviOS -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 16"'
     steps:
-      - uses: actions/checkout@v4
-      # https://github.com/actions/runner-images/discussions/8367#discussioncomment-12685592
-      # https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md
-      - name: Select XCode
-        run: sudo xcode-select -s /Applications/Xcode_14.1.app
+      - uses: actions/checkout@v5
+      # https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+      - name: Create iOS simulator
+        if: contains(matrix.params, 'iphonesimulator')
+        run: |
+          xcrun simctl delete "iPhone 16" 2>/dev/null || true
+          DEVICE_TYPE=$(xcrun simctl list devicetypes | grep -E '^iPhone 16 \(' | head -1 | sed -E 's/.*\((.*)\)/\1/')
+          RUNTIME=$(xcrun simctl list runtimes | grep -E '^iOS' | tail -1 | sed -E 's/.* - //')
+          xcrun simctl create "iPhone 16" "$DEVICE_TYPE" "$RUNTIME"
       - name: Test
         run: xcodebuild ${{ matrix.params }} CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
