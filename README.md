@@ -2,7 +2,7 @@
 
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Build Status](https://github.com/hsluv/hsluv-swift/actions/workflows/ci.yml/badge.svg)](https://github.com/hsluv/hsluv-swift/actions/workflows/ci.yml)
+[![Build Status](https://github.com/hsluv/hsluv-apple/actions/workflows/ci.yml/badge.svg)](https://github.com/hsluv/hsluv-apple/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](LICENSE)
 
 Swift port of [HSLuv](http://www.hsluv.org) (revision 4), courtesy 
@@ -34,15 +34,15 @@ As of version 2.1.0, you can use the Swift Package Manager as integration method
 If you want to use the Swift Package Manager as integration method, either use Xcode to add the package dependency or add the following dependency to your Package.swift:
 
 ```swift
-.package(url: "https://github.com/hsluv/hsluv-swift.git", from: "2.1.0"),
+.package(url: "https://github.com/hsluv/hsluv-apple.git", from: "2.1.0"),
 ```
 
 ### Carthage
 
-Add `github "hsluv/hsluv-swift" ~> 2.0.0` to your Cartfile and run `carthage bootstrap`. This builds frameworks for Mac and iOS targets. 
+Add `github "hsluv/hsluv-apple" ~> 2.0.0` to your Cartfile and run `carthage bootstrap`. This builds frameworks for Mac and iOS targets. 
 
 ```sh
-> echo 'github "hsluv/hsluv-swift" ~> 2.0.0' >> Cartfile
+> echo 'github "hsluv/hsluv-apple" ~> 2.0.0' >> Cartfile
 > carthage bootstrap
 ```
 
