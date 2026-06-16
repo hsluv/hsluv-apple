@@ -71,7 +71,7 @@
 		CB783AD11B3078D5001F8BCB /* AppKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppKit.swift; path = Tests/HSLuvSwiftTests/MacExtensions/AppKit.swift; sourceTree = SOURCE_ROOT; };
 		CB98BFB41B307B070027506A /* HSLuvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSLuvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCAD5371B2FBEBD00D0366A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		CBCAD53B1B2FBF0600D0366A /* HSLuvSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HSLuvSwift.podspec; sourceTree = "<group>"; };
+
 		CBDA801C1B2D2C740010C653 /* HSLuvSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HSLuvSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDD2B131B461C3000E4548F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,14 +185,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		CBCAD5361B2FBEAF00D0366A /* Podspec Metadata */ = {
+		CBCAD5361B2FBEAF00D0366A /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				CBCAD53B1B2FBF0600D0366A /* HSLuvSwift.podspec */,
 				CBCAD5371B2FBEBD00D0366A /* README.md */,
 				CBDD2B131B461C3000E4548F /* LICENSE */,
 			);
-			name = "Podspec Metadata";
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 		CBD1E3061B30B2C800E49F9B /* Resources */ = {
@@ -208,7 +207,7 @@
 			children = (
 				CBDA801E1B2D2C740010C653 /* Sources */,
 				CB37B9121B2E7994009E63A5 /* Tests */,
-				CBCAD5361B2FBEAF00D0366A /* Podspec Metadata */,
+				CBCAD5361B2FBEAF00D0366A /* Metadata */,
 				CBDA801D1B2D2C740010C653 /* Products */,
 			);
 			sourceTree = "<group>";
